@@ -33,7 +33,7 @@ cd ..
 Following the paper, a single model is trained on Adobe240 and evaluated on **both**
 Adobe240 and GoPro. Download the checkpoint and put it at `./saved_checkpoints/evstvsr.pth`:
 
-**Download:** [Google Drive](TODO_ADD_LINK)
+**Download:** [Google Drive](https://drive.google.com/file/d/1gKDC3ZA8tdcoC1giBSL04WdZ5UDDlleh/view?usp=sharing)
 
 (Use `--checkpoint PATH` to point to a different weights file.)
 
