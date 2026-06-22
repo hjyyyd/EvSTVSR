@@ -1,0 +1,61 @@
+#### EvSTVSR test config — GoPro (x4 space, x8 time)
+use_tb_logger: false
+model: VideoSR_base
+distortion: sr
+
+#### dataset
+datasets:
+  test:
+    name: gopro
+    mode: gopro_ev_from_raw
+    ev_sim: volt
+    interval_list: [1]
+    is_test: true
+    load_event: true
+    load_flow: false
+    spatial_upscale: 4
+    random_reverse: false
+    border_mode: false
+    dataroot_GT: ../data/GoPro/GOPRO_Large_all/test
+    dataroot_LQ: ../data/GoPro/GOPRO_Large_all/test
+    video_list_txt: ./dataset/gopro_folder_test.txt
+    test_num_imgs: 48
+    h_ori: 720
+    w_ori: 1280
+    h_new: 512       # divisible by 32
+    w_new: 1024
+    h_st: 0
+    h_ed: 512
+    w_st: 0
+    w_ed: 1024
+    N_frames: 7      # 7 intermediate frames + 2 ends = 9 outputs (x8 time)
+    use_shuffle: false
+    n_workers: 4
+    batch_size_per_gpu: 1
+    use_flip: false
+    use_rot: false
+    color: RGB
+    cal_lpips: false   # also report LPIPS (slower)
+    vis_flow: false    # save optical-flow visualization (needs --save_vis)
+    vis_ev: false      # save event-voxel visualization (needs --save_vis)
+
+#### network
+network_G:
+  which_model_G: LIIF
+  nf: 64
+  nframes: 7
+  groups: 8
+  front_RBs: 5
+  mid_RBs: 0
+  back_RBs: 40
+  HR_in: false
+
+#### path
+path:
+  strict_load: true
+  resume_state:
+  result_root: ./results
+
+#### misc
+train:
+  manual_seed: 0
