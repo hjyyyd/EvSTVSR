@@ -1,0 +1,21 @@
+# Install PyTorch (with CUDA) first, matched to your system:
+#   https://pytorch.org/get-started/locally/
+torch
+torchvision
+
+numpy
+opencv-python
+pyyaml
+tqdm
+pillow
+matplotlib
+pandas
+einops
+timm
+flow_vis
+pytorch_msssim
+scikit-image
+
+# optional:
+# lpips   # only when cal_lpips=true in the test config
+# lmdb    # only for lmdb-format datasets (not needed for the image-folder test)
